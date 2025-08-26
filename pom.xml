@@ -8,7 +8,7 @@
 		<version>3.5.4</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>org.asco_devs</groupId>
+	<groupId>org.code_wizards</groupId>
 	<artifactId>registro-cliente</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>registro-cliente</name>
