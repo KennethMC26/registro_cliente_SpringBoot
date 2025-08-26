@@ -55,6 +55,23 @@
                         <p:column headerText="EDAD">
                             <h:outputText value="#{cliente.edad}"/>
                         </p:column>
+                        <p:column>
+                            <p:commandButton value="Editar" icon="pi pi-pencil"
+                                                update=":formulario-modal:ventana-cliente"
+                                                process="@this"
+                                                oncomplete="PF('ventanaModalCliente').show()"
+                                                class="ui-button-primary"
+                                                style="margin-right:.5rem">
+                                <f:serPropertyActionListener
+                                                value="#{cliente}"
+                                                target="#{indexController.clienteSeleccionado}"/>
+                                <p:commadnButton target=":formulario-modal"
+
+                            </p:commandButton>
+                            <p:commandButton value="Eliminar" icon="pi pi-trash" class="ui-button-danger">
+
+                            </p:commandButton>
+                        </p:column>
                     </p:dataTable>
                 </div>
 
@@ -66,29 +83,45 @@
                     <p:outputPanel id="ventana-cliente" class="ui-fluid">
                         <div class="field">
                             <p:outputLabel for="nombre">Nombre</p:outputLabel>
-                            <p:inputText id="nombre" required="true"/>
+                            <p:inputText id="nombre"
+                                         value="#{indexController.clienteSeleccionado.nombre}"
+                                         required="true"/>
+
                         </div>
                         <div class="field">
                             <p:outputLabel for="apellido">Apellido</p:outputLabel>
-                            <p:inputText id="apellido" required="true"/>
+                            <p:inputText id="apellido"
+                                         value="#{indexController.clienteSeleccionado.apellido}"
+                                         required="true"/>
                         </div>
                         <div class="field">
                             <p:outputLabel for="telefono">Telefono</p:outputLabel>
-                            <p:inputText id="telefono" required="true"/>
+                            <p:inputText id="telefono"
+                                         value="#{indexController.clienteSeleccionado.telefono}"
+                                         required="true"/>
                         </div>
                         <div class="field">
                             <p:outputLabel for="correo">Correo</p:outputLabel>
-                            <p:inputText id="correo" required="true"/>
+                            <p:inputText id="correo"
+                                         value="#{indexController.clienteSeleccionado.correo}"
+                                         required="true"/>
                         </div>
                         <div class="field">
                             <p:outputLabel for="genero">Genero</p:outputLabel>
-                            <p:inputText id="genero" required="true"/>
+                            <p:inputText id="genero"
+                                         value="#{indexController.clienteSeleccionado.genero}"
+                                         required="true"/>
                         </div>
                         <div class="field">
                             <p:outputLabel for="edad">Edad</p:outputLabel>
-                            <p:inputText id="edad" required="true"/>
+                            <p:inputText id="edad"
+                                         value="#{indexController.clienteSeleccionado.edad}"
+                                         required="true"/>
                         </div>
                     </p:outputPanel>
+                    <f:facet name="footer">
+                        <p:commandButton value="Guardar" icon="pi pi-check"  process="ventana-cliente @this" actionListener="#{indexController.guardarCliente}"/>
+                    </f:facet>
                 </p:dialog>
             </h:form>
         </div>
